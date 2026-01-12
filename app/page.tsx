@@ -1,65 +1,137 @@
-import Image from "next/image";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
+import GlassCard from "../src/components/GlassCard";
+
+const featureCards = [
+  {
+    href: "/guides",
+    title: "Step-by-step guides",
+    body: "Learn the basics of car care  from oil changes to warning lights  in plain language.",
+  },
+  {
+    href: "/faqs",
+    title: "FAQs, decoded",
+    body: "Straight answers on pricing, timing, and what to expect when you book a service.",
+  },
+  {
+    href: "/service-request",
+    title: "Request service online",
+    body: "Tell us what your vehicle is doing and well prep before you arrive.",
+  },
+  {
+    href: "/info",
+    title: "About, contact & credentials",
+    body: "See whos behind the wrenches, how to reach us, and why drivers trust Ace.",
+  },
+];
 
 export default function Home() {
+  const prefersReducedMotion = useReducedMotion();
+
+  const heroVariants = prefersReducedMotion
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 } };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-transparent">
+      {/* HERO SECTION - editorial layout inspired by sandbox */}
+      <section className="relative flex min-h-[80vh] flex-col justify-center px-6 md:px-16 lg:px-24 overflow-hidden">
+        {/* abstract right-side gradient */}
+        <div className="pointer-events-none absolute right-[-10%] top-0 h-full w-1/2 skew-x-12 bg-gradient-to-l from-neutral-200/60 to-transparent mix-blend-multiply" />
+
+        <motion.div
+          initial={heroVariants.initial}
+          animate={heroVariants.animate}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 max-w-4xl space-y-8"
+        >
+          <span className="mb-2 block text-sm font-semibold uppercase tracking-[0.3em] text-luxury-accent">
+            Local  Honest  Detailed
+          </span>
+
+          <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-neutral-900 sm:text-5xl md:text-6xl lg:text-7xl">
+            Glass-clear
+            <br />
+            <span className="text-neutral-400">auto repair.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="max-w-xl border-l-2 border-luxury-accent pl-5 text-base font-light text-neutral-600 sm:text-lg">
+            Ace Auto Repair combines modern diagnostics, practical guides, and
+            straightforward service requests so you always know whats happening
+            with your car before it goes on the lift.
           </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link
+              href="/service-request"
+              className="group relative overflow-hidden px-8 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white bg-neutral-900"
+            >
+              <span className="relative z-10">Request service</span>
+              <div className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 ease-out group-hover:translate-x-0" />
+              <span className="absolute inset-0 z-10 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.22em] text-neutral-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                Request service
+              </span>
+            </Link>
+            <Link
+              href="/guides"
+              className="flex items-center gap-2 px-8 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors"
+            >
+              Browse guides
+            </Link>
+          </div>
+
+          <div className="grid gap-4 text-xs text-neutral-600 sm:grid-cols-3">
+            <div>
+              <p className="font-semibold text-neutral-900">Same-day diagnostics</p>
+              <p>Drop off in the morning, get a clear plan before end of day.</p>
+            </div>
+            <div>
+              <p className="font-semibold text-neutral-900">Technician-first info</p>
+              <p>Our request form captures what your tech actually needs to know.</p>
+            </div>
+            <div>
+              <p className="font-semibold text-neutral-900">No-pressure guidance</p>
+              <p>Use the guides and FAQs to decide whats urgent and what can wait.</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* FEATURE / DESTINATION CARDS */}
+      <section className="bg-neutral-100 py-16 px-6 md:px-16 lg:px-24">
+        <div className="mb-10 flex items-end justify-between border-b border-neutral-300 pb-4">
+          <h2 className="text-sm font-bold uppercase tracking-[0.28em] text-neutral-500">
+            Navigate Ace
+          </h2>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {featureCards.map((card, index) => (
+            <GlassCard
+              key={card.href}
+              delay={0.1 * index}
+              className="group flex h-full flex-col justify-between p-5 text-xs text-neutral-700"
+            >
+              <div>
+                <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-neutral-900">
+                  {card.title}
+                </h3>
+                <p className="text-[0.8rem] text-neutral-600">{card.body}</p>
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-neutral-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-neutral-500 group-hover:text-luxury-accent">
+                  Explore
+                </span>
+              </div>
+            </GlassCard>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
