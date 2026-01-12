@@ -26,11 +26,12 @@ export default function GuidesPage() {
             Guides
           </p>
           <h1 className="mt-2 text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
-            Basic car repair & maintenance, explained
+            Mobile auto repair tips for Richmond drivers
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-neutral-600 sm:text-base">
-            Short, practical guides to help you understand what your car needs and
-            why – so conversations with your technician feel clear, not confusing.
+            Short, practical guides written for Richmond, VA drivers using a
+            mobile mechanic. Learn what your car needs, when to call for
+            on-site auto repair, and how to talk clearly with your technician.
           </p>
         </header>
 

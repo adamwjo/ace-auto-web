@@ -62,12 +62,13 @@ export default function ServiceRequestPage() {
             Service request
           </p>
           <h1 className="mt-2 text-3xl font-black tracking-tight text-neutral-900 sm:text-4xl">
-            Tell your technician what the car is doing
+            Request mobile auto repair in Richmond, VA
           </h1>
           <p className="mt-4 text-sm text-neutral-600 sm:text-base">
-            This form doesn’t book an appointment on its own yet, but it gives
-            your technician the context they need so the first conversation is
-            already halfway done.
+            Tell your Richmond mobile mechanic what your vehicle is doing so we
+            can plan your on-site visit. This form is a placeholder and doesn&apos;t
+            yet book appointments, but it captures the details a mobile
+            technician needs before driving out to you.
           </p>
         </header>
 

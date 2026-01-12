@@ -14,22 +14,23 @@ const chakra = Chakra_Petch({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aceauto.example"),
   title: {
-    default: "Ace Auto Repair | Modern Diagnostics & Clear Explanations",
-    template: "%s | Ace Auto Repair",
+    default:
+      "Richmond Mobile Mechanic | Mobile Auto Repair in RVA & Surrounding Areas",
+    template: "%s | Richmond Mobile Mechanic",
   },
   description:
-    "Modern auto repair guides, FAQs, and service requests for Ace Auto Repair.",
+    "Richmond, Virginia mobile mechanic providing on-site auto repair, diagnostics, and maintenance throughout RVA and nearby areas.",
   keywords: [
-    "Auto Repair",
-    "Diagnostics",
-    "Brake Service",
-    "Check Engine Light",
-    "Car Maintenance Guides",
+    "Richmond mobile mechanic",
+    "mobile auto repair Richmond VA",
+    "RVA mobile mechanic",
+    "Richmond VA car repair",
+    "on-site auto repair",
   ],
   openGraph: {
-    title: "Ace Auto Repair",
+    title: "Richmond Mobile Mechanic",
     description:
-      "Modern diagnostics, practical guides, and straightforward service requests for drivers who want clear answers.",
+      "On-site mobile auto repair and diagnostics serving Richmond (RVA) and surrounding Virginia communities.",
     locale: "en_US",
     type: "website",
   },

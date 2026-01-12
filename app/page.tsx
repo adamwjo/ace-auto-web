@@ -48,52 +48,63 @@ export default function Home() {
           className="relative z-10 max-w-4xl space-y-8"
         >
           <span className="mb-2 block text-sm font-semibold uppercase tracking-[0.3em] text-luxury-accent">
-            Local  Honest  Detailed
+            Mobile  On-Site  Richmond, VA
           </span>
 
           <h1 className="text-4xl font-black leading-[0.95] tracking-tight text-neutral-900 sm:text-5xl md:text-6xl lg:text-7xl">
-            Glass-clear
+            Richmond&apos;s BEST
             <br />
-            <span className="text-neutral-400">auto repair.</span>
+            <span className="text-neutral-400">mobile mechanic.</span>
           </h1>
 
           <p className="max-w-xl border-l-2 border-luxury-accent pl-5 text-base font-light text-neutral-600 sm:text-lg">
-            Ace Auto Repair combines modern diagnostics, practical guides, and
-            straightforward service requests so you always know whats happening
-            with your car before it goes on the lift.
+            Serving Richmond (RVA) and the surrounding Virginia areas with
+            fast, professional mobile auto repair. We come to your home or
+            workplace so you can focus on the road ahead instead of waiting in
+            a shop lobby.
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/service-request"
-              className="group relative overflow-hidden px-8 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white bg-neutral-900"
-            >
-              <span className="relative z-10">Request service</span>
-              <div className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 ease-out group-hover:translate-x-0" />
-              <span className="absolute inset-0 z-10 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.22em] text-neutral-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                Request service
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="flex flex-col gap-1 text-sm text-neutral-800">
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+                Call or text for mobile service
               </span>
-            </Link>
-            <Link
-              href="/guides"
-              className="flex items-center gap-2 px-8 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors"
-            >
-              Browse guides
-            </Link>
+              <span className="text-2xl font-bold tracking-tight text-neutral-900">
+                804-441-4309
+              </span>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:ml-6">
+              <Link
+                href="/service-request"
+                className="group relative overflow-hidden px-8 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white bg-neutral-900"
+              >
+                <span className="relative z-10">Request mobile repair</span>
+                <div className="absolute inset-0 -translate-x-full bg-white transition-transform duration-300 ease-out group-hover:translate-x-0" />
+                <span className="absolute inset-0 z-10 flex items-center justify-center text-xs font-semibold uppercase tracking-[0.22em] text-neutral-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  Request mobile repair
+                </span>
+              </Link>
+              <Link
+                href="/guides"
+                className="flex items-center gap-2 px-8 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-900 border border-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors"
+              >
+                Read maintenance guides
+              </Link>
+            </div>
           </div>
 
           <div className="grid gap-4 text-xs text-neutral-600 sm:grid-cols-3">
             <div>
-              <p className="font-semibold text-neutral-900">Same-day diagnostics</p>
-              <p>Drop off in the morning, get a clear plan before end of day.</p>
+              <p className="font-semibold text-neutral-900">Mobile auto repair in Richmond</p>
+              <p>From batteries and brakes to diagnostics, we come to you anywhere in RVA.</p>
             </div>
             <div>
-              <p className="font-semibold text-neutral-900">Technician-first info</p>
-              <p>Our request form captures what your tech actually needs to know.</p>
+              <p className="font-semibold text-neutral-900">Home, office, or roadside</p>
+              <p>Schedule a mobile mechanic visit that fits your day instead of rearranging it.</p>
             </div>
             <div>
-              <p className="font-semibold text-neutral-900">No-pressure guidance</p>
-              <p>Use the guides and FAQs to decide whats urgent and what can wait.</p>
+              <p className="font-semibold text-neutral-900">Transparent, local service</p>
+              <p>Clear estimates and communication from a Richmond, Virginia mobile mechanic you can reach by phone.</p>
             </div>
           </div>
         </motion.div>
