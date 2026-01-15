@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="20" fill="#1a1a1a"/>
+  <g font-family="Impact, Arial Black, sans-serif" font-weight="900" font-style="italic">
+    <text x="15" y="115" font-size="70" fill="#c94a2a" transform="skewX(-5)">A</text>
+    <text x="60" y="115" font-size="70" fill="#d4a634" transform="skewX(-5)">C</text>
+    <text x="108" y="115" font-size="70" fill="#4a8c3a" transform="skewX(-5)">E</text>
+  </g>
+</svg>

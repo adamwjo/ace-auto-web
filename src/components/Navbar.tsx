@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 
@@ -44,9 +45,14 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 md:px-8">
           {/* LOGO */}
           <Link href="/" className="relative z-[60] group">
-            <span className="text-xl font-black tracking-tighter text-neutral-900 group-hover:text-neutral-600 transition-colors">
-              ACE<span className="text-luxury-accent">.</span>
-            </span>
+            <Image
+              src="/logo.svg"
+              alt="ACE Mobile Repairs"
+              width={168}
+              height={60}
+              className="h-14 w-auto transition-opacity group-hover:opacity-80"
+              priority
+            />
           </Link>
 
           {/* DESKTOP NAV */}
