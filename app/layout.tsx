@@ -34,21 +34,12 @@ export const metadata: Metadata = {
       "On-site mobile auto repair and diagnostics serving Richmond (RVA) and surrounding Virginia communities.",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "ACE Mobile Repairs - Richmond Mobile Mechanic",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Richmond Mobile Mechanic",
     description:
       "On-site mobile auto repair and diagnostics serving Richmond (RVA) and surrounding Virginia communities.",
-    images: ["/opengraph-image.svg"],
   },
   other: {
     "geo.region": "US-VA",
