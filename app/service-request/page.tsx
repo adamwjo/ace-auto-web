@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import GlassCard from "../../src/components/GlassCard";
+import {
+  submitServiceRequest,
+  type ServiceRequest,
+  type SubmitServiceRequestInput,
+} from "../../src/mocks/serviceApi";
+import { useCustomerAuth } from "../../src/context/CustomerAuthContext";
 
 interface FormState {
   name: string;
@@ -33,6 +40,8 @@ export default function ServiceRequestPage() {
   const [values, setValues] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<null | "success" | "error">(null);
+  const [createdRequest, setCreatedRequest] = useState<ServiceRequest | null>(null);
+  const { customer } = useCustomerAuth();
 
   function handleChange(
     field: keyof FormState,
@@ -45,13 +54,39 @@ export default function ServiceRequestPage() {
     e.preventDefault();
     setSubmitting(true);
     setSubmitted(null);
+    setCreatedRequest(null);
 
-    // Front-end-only simulation of submitting to a technician.
-    await new Promise((resolve) => setTimeout(resolve, 900));
+    const payload: SubmitServiceRequestInput = {
+      client: {
+        name: values.name,
+        email: values.email || customer?.email,
+        phone: values.phone,
+        accountId: customer?.id,
+      },
+      vehicle: {
+        description: values.vehicle,
+        mileage: values.mileage,
+      },
+      details: {
+        concern: values.concern,
+        whenStarted: values.whenStarted,
+        dashLights: values.dashLights,
+        preferredTime: values.preferredTime,
+        urgency: values.urgency as "today" | "soon" | "routine" | "",
+      },
+    };
 
-    setSubmitting(false);
-    setSubmitted("success");
-    setValues(initialState);
+    try {
+      const created = await submitServiceRequest(payload);
+      setCreatedRequest(created);
+      setSubmitted("success");
+      setValues(initialState);
+    } catch (err) {
+      console.error(err);
+      setSubmitted("error");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -172,7 +207,7 @@ export default function ServiceRequestPage() {
                 </p>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <button
                   type="submit"
                   disabled={submitting}
@@ -180,11 +215,30 @@ export default function ServiceRequestPage() {
                 >
                   {submitting ? "Sending details…" : "Send to technician"}
                 </button>
-                {submitted === "success" && (
-                  <p className="text-[0.78rem] text-emerald-600">
-                    Got it. This is a simulated submission only – update this page
-                    later when you’re ready to connect it to your real booking
-                    process.
+                {submitted === "success" && createdRequest && (
+                  <div className="space-y-1 text-[0.78rem] text-neutral-700">
+                    <p className="text-emerald-600 font-medium">
+                      Got it. Your request has been recorded as {createdRequest.id}.
+                    </p>
+                    <p>
+                      We&apos;ll follow up using the contact details you provided.
+                      You can also
+                      {" "}
+                      <Link
+                        href={`/service-request/status?id=${encodeURIComponent(createdRequest.id)}`}
+                        className="underline underline-offset-2"
+                      >
+                        check the status of this request
+                      </Link>
+                      {" "}
+                      later.
+                    </p>
+                  </div>
+                )}
+                {submitted === "error" && (
+                  <p className="text-[0.78rem] text-red-600">
+                    Something went wrong while sending your request. Please try
+                    again.
                   </p>
                 )}
               </div>

@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Guides', href: '/guides' },
   { name: 'FAQs', href: '/faqs' },
   { name: 'Service Request', href: '/service-request' },
+  { name: 'Testimonials', href: '/testimonials' },
   { name: 'Info', href: '/info' },
 ];
 

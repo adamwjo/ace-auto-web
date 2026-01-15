@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, Chakra_Petch } from "next/font/google";
 import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
+import { AppProviders } from "../src/context/AppProviders";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 const chakra = Chakra_Petch({
@@ -50,9 +51,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${chakra.variable}`}>
       <body className="main-shell antialiased">
-        <Navbar />
-        <main className="pt-24 pb-24">{children}</main>
-        <Footer />
+        <AppProviders>
+          <Navbar />
+          <main className="pt-24 pb-24">{children}</main>
+          <Footer />
+        </AppProviders>
       </body>
     </html>
   );

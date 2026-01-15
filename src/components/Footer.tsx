@@ -72,18 +72,23 @@ export default function Footer() {
             Navigation
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
-            {[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: 'FAQs', href: '/faqs' }, { label: 'Service request', href: '/service-request' }, { label: 'Info & contact', href: '/info' }].map(
-              (link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-300 transition-colors hover:text-luxury-accent"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ),
-            )}
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'Guides', href: '/guides' },
+              { label: 'FAQs', href: '/faqs' },
+              { label: 'Service request', href: '/service-request' },
+              { label: 'Testimonials', href: '/testimonials' },
+              { label: 'Info & contact', href: '/info' },
+            ].map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-neutral-300 transition-colors hover:text-luxury-accent"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
