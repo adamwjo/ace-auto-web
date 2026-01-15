@@ -13,7 +13,9 @@ const chakra = Chakra_Petch({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aceauto.example"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://aceauto.example"
+  ),
   title: {
     default:
       "Richmond Mobile Mechanic | Mobile Auto Repair in RVA & Surrounding Areas",
